@@ -23,7 +23,7 @@ public class Pikachu extends PokemonImp {
 
     //ENEL lightning
     @Override
-    public void useUltimate(Pokemon enemyPokemon){
+    public void useUltimate(PokemonImp enemyPokemon){
         //Stun the enemy pokemon
         enemyPokemon.setState(this.getNaturalTypeState());
 

@@ -15,5 +15,5 @@ public abstract class Potion extends Item {
         //Effect(player.getPokemon);
     }
 
-    public abstract void Effect(Pokemon pokemon);
+    public abstract void Effect(PokemonImp pokemon);
 }

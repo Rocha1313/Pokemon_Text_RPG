@@ -23,7 +23,7 @@ public class Ekans extends PokemonImp {
 
     //Luffy Kiss
     @Override
-    public void useUltimate(Pokemon enemyPokemon){
+    public void useUltimate(PokemonImp enemyPokemon){
         //Let them die slowly
         enemyPokemon.setState(this.getNaturalTypeState());
 

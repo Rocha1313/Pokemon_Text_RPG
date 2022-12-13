@@ -23,7 +23,7 @@ public class Charmander extends PokemonImp {
 
     //Ace Fists of Fire
     @Override
-    public void useUltimate(Pokemon enemyPokemon){
+    public void useUltimate(PokemonImp enemyPokemon){
         //Make it Burn
         enemyPokemon.setState(this.getNaturalTypeState());
 

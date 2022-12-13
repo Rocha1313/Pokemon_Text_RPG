@@ -4,13 +4,13 @@ public interface Pokemon {
 
     //Method's
     boolean isAlive();
-    void getAttacked(int damage, Pokemon enemyPokemon);
-    void defend(int damage, Pokemon enemyPokemon);
+    void getAttacked(int damage, PokemonImp enemyPokemon);
+    void defend(int damage, PokemonImp enemyPokemon);
     int attack();
     boolean ultimateIsReady();
-    void useUltimate(Pokemon enemyPokemon);
+    void useUltimate(PokemonImp enemyPokemon);
     boolean checkLevel();
-    void heal();
+    void heal(int amount);
 
     //Getter's
 
