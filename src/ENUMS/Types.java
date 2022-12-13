@@ -6,8 +6,8 @@ public enum Types {
     POISON("POISON", States.POISON.getState());
 
 
-    private String type;
-    private String naturalTypeState;
+    private final String type;
+    private final String naturalTypeState;
     Types(String type, String naturalTypeState) {
         this.type = type;
         this.naturalTypeState = naturalTypeState;

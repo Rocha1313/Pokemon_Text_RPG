@@ -6,8 +6,8 @@ public enum States {
     ELECTRIC("STUNNED", 0),
     POISON("POISONED",3);
 
-    private String state;
-    private int damage;
+    private final String state;
+    private final int damage;
     States(String state, int damage) {
         this.state = state;
         this.damage = damage;

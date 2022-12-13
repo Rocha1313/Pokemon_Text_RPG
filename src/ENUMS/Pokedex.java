@@ -1,17 +1,15 @@
 package ENUMS;
 
-import java.lang.reflect.Type;
-
 public enum Pokedex {
     PIKACHU(4, "PIKACHU", Types.ELECTRIC.getType() ,  15, 45),
     CHARMANDER(2, "CHARMANDER", Types.FIRE.getType(), 12, 50),
     EKANS(1, "EKANS", Types.POISON.getType(), 8, 35);
 
-    private int rarity;
-    private String name;
-    private String type;
-    private int damage;
-    private int health;
+    private final int rarity;
+    private final String name;
+    private final String type;
+    private final int damage;
+    private final int health;
     Pokedex(int rarity, String name, String type, int damage, int health) {
         this.rarity = rarity;
         this.name = name;
