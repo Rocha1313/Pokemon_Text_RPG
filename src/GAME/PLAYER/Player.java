@@ -1,5 +1,6 @@
 package GAME.PLAYER;
 
+import GAME.INVENTORY.*;
 import POKEMON.*;
 
 import java.util.ArrayList;
@@ -12,4 +13,7 @@ public class Player {
     private int matchesPlayed;
     private ArrayList<Pokemon> allPokemons = new ArrayList<>();
     Pokemon[] pokemonDeck = new Pokemon[6];
+    ArrayList<InventorySpace> inventory = new ArrayList<>();
+
+
 }

@@ -24,7 +24,7 @@ public class Mew extends PokemonImp {
     //SHANKS
     @Override
     public void useUltimate(PokemonImp enemyPokemon){
-        //Stun the enemy pokemon
+        //let the enemy pokemon dizzy
         enemyPokemon.setState(this.getNaturalTypeState());
 
         //Mew makes enemy attack him self   /// This attack is weak if is used on low level pokemons
