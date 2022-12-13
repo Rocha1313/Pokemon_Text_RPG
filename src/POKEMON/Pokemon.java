@@ -8,9 +8,13 @@ public interface Pokemon {
     void defend(int damage, Pokemon enemyPokemon);
     int attack();
     void useUltimate(Pokemon enemyPokemon);
+    boolean checkLevel();
+    void heal();
 
     //Getter's
 
+    int getMaxHealth();
+    int getNextLevel();
     String getName();
     int getLevel();
     int getXP();
@@ -24,6 +28,9 @@ public interface Pokemon {
     int getDamage();
 
     //Setter's
+
+    void setMaxHealth(int maxHealth);
+    void setNextLevel(int nextLevel);
     void setName(String name);
     void setLevel(int level);
     void setXP(int XP);

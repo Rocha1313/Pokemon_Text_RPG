@@ -5,6 +5,8 @@ import ENUMS.*;
 public class Pikachu extends PokemonImp{
 
     public Pikachu(){
+        super.setMaxHealth(Pokedex.PIKACHU.getHealth());
+        super.setNextLevel(100);
         super.setName(Pokedex.PIKACHU.getName());
         super.setLevel(1);
         super.setXP(0);
