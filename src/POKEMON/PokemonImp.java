@@ -5,73 +5,109 @@ public abstract class PokemonImp implements Pokemon{
     private int level;
     private int XP;
     private String type;
+    private String naturalTypeState;
     private int health;
     private String state;
+    private int stateCoolDown;
     private int ultimateCoolDown;
     private int rarity;
     private int damage;
 
     //Constructor's
-    public PokemonImp(){
-
-    }
+    public PokemonImp(){}
 
     //Method's
 
     //Decrease life by attack
-    public void getAttacked(Pokemon enemyPokemon){
+    public void getAttacked(int damage, Pokemon enemyPokemon){
 
     }
 
     //Defend part or all damage to Pokemon that attacked
-    public void defend(Pokemon enemyPokemon){
+    public void defend(int damage, Pokemon enemyPokemon){
 
+        //Verify if damage is bigger than health
+        //and change the damage to same amount the health if true
+        if (damage >= this.health){
+            damage = this.health;
+        }
+
+        //45% chance defend natural State of the other pokemon
+        int defendOfEnemyState = (int) (Math.random() * 100) + 1;
+        if (!(defendOfEnemyState <= 45)){
+            this.state = enemyPokemon.getNaturalTypeState();
+        }
+
+        //10% chance defend all damage
+        int defendAllDamage = (int) (Math.random() * 10) + 1;
+        if (defendAllDamage == 1){
+            return;
+        }
+
+        //30% chance defend part of damage
+        int defendPartOfDamage = (int) (Math.random() * 100) + 1;
+        if (defendPartOfDamage <= 30){
+            this.health -= damage / 2;
+            return;
+        }
+
+        //Get all damage
+        this.health = damage;
     }
 
     //Attack enemy Pokemon
-    public void attack(Pokemon enemyPokemon){
-
+    public int attack(){
+        return (int) (Math.random() * 12) + this.damage;
     }
 
     //Use ultimate
     public abstract void useUltimate(Pokemon enemyPokemon);
 
     //Getter's
-    public String getName(){
+    public String getName () {
         return this.name;
     }
 
-    public int getLevel() {
+    public int getLevel () {
         return this.level;
     }
 
-    public int getXP() {
+    public int getXP () {
         return this.XP;
     }
 
-    public String getType() {
+    public String getType () {
         return this.type;
     }
 
-    public int getHealth() {
+    public int getHealth () {
         return this.health;
     }
 
-    public String getState() {
+    public String getState () {
         return this.state;
     }
 
-    public int getUltimateCoolDown() {
+    public String getNaturalTypeState(){
+        return this.naturalTypeState;
+    }
+
+    public int getStateCoolDown () {
+        return this.stateCoolDown;
+    }
+
+    public int getUltimateCoolDown () {
         return this.ultimateCoolDown;
     }
 
-    public int getRarity() {
+    public int getRarity () {
         return this.rarity;
     }
 
-    public int getDamage() {
+    public int getDamage () {
         return this.damage;
     }
+
 
     //Setter's
     public void setName(String name) {
@@ -90,12 +126,20 @@ public abstract class PokemonImp implements Pokemon{
         this.type = type;
     }
 
+    public void setNaturalTypeState(String naturalTypeState){
+        this.naturalTypeState = naturalTypeState;
+    }
+
     public void setHealth(int health) {
         this.health = health;
     }
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public void setStateCoolDown(int stateCoolDown) {
+        this.stateCoolDown = stateCoolDown;
     }
 
     public void setUltimateCoolDown(int ultimateCoolDown) {

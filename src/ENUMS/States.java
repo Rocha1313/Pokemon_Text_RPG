@@ -2,7 +2,8 @@ package ENUMS;
 
 public enum States {
     NORMAL("NORMAL"),
-    BURNING("BURNING");
+    FIRE("BURNING"),
+    ELECTRIC("ENERGIZED");
 
     private String state;
     States(String state) {

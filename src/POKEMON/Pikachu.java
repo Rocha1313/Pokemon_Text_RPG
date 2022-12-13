@@ -11,6 +11,8 @@ public class Pikachu extends PokemonImp{
         super.setType(Pokedex.PIKACHU.getType());
         super.setHealth(Pokedex.PIKACHU.getHealth());
         super.setState(States.NORMAL.getState());
+        super.setNaturalTypeState(Types.ELECTRIC.getNaturalTypeState());
+        super.setStateCoolDown(0);
         super.setUltimateCoolDown(0);
         super.setRarity(Pokedex.PIKACHU.getRarity());
         super.setDamage(Pokedex.PIKACHU.getDamage());
