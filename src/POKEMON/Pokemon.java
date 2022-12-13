@@ -3,6 +3,7 @@ package POKEMON;
 public interface Pokemon {
 
     //Method's
+    boolean isAlive();
     void getAttacked(int damage, Pokemon enemyPokemon);
     void defend(int damage, Pokemon enemyPokemon);
     int attack();

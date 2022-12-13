@@ -18,9 +18,27 @@ public abstract class PokemonImp implements Pokemon{
 
     //Method's
 
+    //Verify if Pokemon is Alive
+    public boolean isAlive(){
+        return this.health > 0;
+    }
+
     //Decrease life by attack
     public void getAttacked(int damage, Pokemon enemyPokemon){
 
+        //Verify if damage is bigger than health
+        //and change the damage to same amount the health if true
+        if (damage >= this.health){
+            damage = this.health;
+        }
+
+        //45% chance defend natural State of the other pokemon
+        int defendOfEnemyState = (int) (Math.random() * 100) + 1;
+        if (!(defendOfEnemyState <= 45)){
+            this.state = enemyPokemon.getNaturalTypeState();
+        }
+
+        this.health = damage;
     }
 
     //Defend part or all damage to Pokemon that attacked
