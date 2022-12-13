@@ -21,8 +21,22 @@ public class Ekans extends PokemonImp {
         super.setDamage(Pokedex.EKANS.getDamage());
     }
 
+    //Luffy Kiss
     @Override
     public void useUltimate(Pokemon enemyPokemon){
+        //Let them die slowly
+        enemyPokemon.setState(this.getNaturalTypeState());
 
+        //Ekans Just a big amount of damage related a poison damage
+        int damage = States.POISON.getDamage() * (int) (Math.random() * 7) + 8;
+
+        //Verify if damage is bigger than health
+        //and change the damage to same amount the health if true
+        if (damage >= enemyPokemon.getHealth()) {
+            damage = enemyPokemon.getHealth();
+        }
+
+        //Deal the damage
+        enemyPokemon.setHealth(enemyPokemon.getHealth() - damage);
     }
 }
