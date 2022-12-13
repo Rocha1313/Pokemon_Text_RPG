@@ -3,6 +3,9 @@ package ENUMS;
 public enum Types {
     ELECTRIC("ELECTRIC", States.ELECTRIC.getState()),
     FIRE("FIRE", States.FIRE.getState()),
+    PSYCHIC("PSYCHIC", States.PSYCHIC.getState()),
+    WATER("WATER", States.WATER.getState()),
+    FIGHTING("FIGHTING", States.FIGHTING.getState()),
     POISON("POISON", States.POISON.getState());
 
 
