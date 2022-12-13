@@ -26,7 +26,7 @@ public abstract class PokemonImp implements Pokemon {
     }
 
     //Decrease life by attack
-    public void getAttacked(int damage, Pokemon enemyPokemon){
+    public void getAttacked(int damage, PokemonImp enemyPokemon){
 
         //Verify if damage is bigger than health
         //and change the damage to same amount the health if true
@@ -44,7 +44,7 @@ public abstract class PokemonImp implements Pokemon {
     }
 
     //Defend part or all damage to Pokemon that attacked
-    public void defend(int damage, Pokemon enemyPokemon){
+    public void defend(int damage, PokemonImp enemyPokemon){
 
         //Verify if damage is bigger than health
         //and change the damage to same amount the health if true
@@ -84,10 +84,11 @@ public abstract class PokemonImp implements Pokemon {
     public boolean ultimateIsReady(){
         return this.ultimateCoolDown >= 100;
     }
-    //Use ultimate
-    public abstract void useUltimate(Pokemon enemyPokemon);
 
-    //Check if pokemon can level up
+    //Use ultimate
+    public abstract void useUltimate(PokemonImp enemyPokemon);
+
+    //Check if Pokemon can level up
     public boolean checkLevel(){
 
         //Check if pokemon level up
@@ -101,8 +102,13 @@ public abstract class PokemonImp implements Pokemon {
     }
 
     //Heal Pokemon
-    public void heal(){
-        this.health = this.maxHealth;
+    public void heal(int amount){
+        if (this.health + amount >= this.maxHealth){
+            this.health = this.maxHealth;
+            return;
+        }
+
+        this.health += amount;
     }
 
 

@@ -12,6 +12,13 @@ public class InventorySpace {
         this.quantity = quantity;
     }
 
+    //Method's
+
+    //Increase number of Item's On Space
+    public void addItemOnSpace(int amountOfItems){
+        this.quantity += amountOfItems;
+    }
+
     //Getter's
     public Item getItem() {
         return item;
