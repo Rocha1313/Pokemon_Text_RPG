@@ -2,7 +2,9 @@ package ENUMS;
 
 public enum Types {
     ELECTRIC("ELECTRIC", States.ELECTRIC.getState()),
-    FIRE("FIRE", States.FIRE.getState());
+    FIRE("FIRE", States.FIRE.getState()),
+    POISON("POISON", States.POISON.getState());
+
 
     private String type;
     private String naturalTypeState;

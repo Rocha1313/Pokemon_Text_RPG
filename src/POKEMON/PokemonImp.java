@@ -80,6 +80,10 @@ public abstract class PokemonImp implements Pokemon {
         return (int) (Math.random() * 12) + this.damage;
     }
 
+    //Check if ultimate is charged
+    public boolean ultimateIsReady(){
+        return this.ultimateCoolDown >= 100;
+    }
     //Use ultimate
     public abstract void useUltimate(Pokemon enemyPokemon);
 

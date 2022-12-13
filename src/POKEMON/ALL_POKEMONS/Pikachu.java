@@ -1,8 +1,9 @@
-package POKEMON;
+package POKEMON.ALL_POKEMONS;
 
 import ENUMS.*;
+import POKEMON.*;
 
-public class Pikachu extends PokemonImp{
+public class Pikachu extends PokemonImp {
 
     public Pikachu(){
         super.setMaxHealth(Pokedex.PIKACHU.getHealth());

@@ -7,6 +7,7 @@ public interface Pokemon {
     void getAttacked(int damage, Pokemon enemyPokemon);
     void defend(int damage, Pokemon enemyPokemon);
     int attack();
+    boolean ultimateIsReady();
     void useUltimate(Pokemon enemyPokemon);
     boolean checkLevel();
     void heal();
