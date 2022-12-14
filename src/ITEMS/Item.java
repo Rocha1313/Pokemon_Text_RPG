@@ -11,7 +11,7 @@ public class Item {
     }
 
     //Getter's
-    public String getName() {
+    public String getName(){
         return Name;
     }
 

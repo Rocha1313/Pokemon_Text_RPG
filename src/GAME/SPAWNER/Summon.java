@@ -7,7 +7,7 @@ import POKEMON.ALL_POKEMONS.*;
 
 public class Summon {
 
-    static PokemonImp Pokemon (){
+    public static PokemonImp Pokemon (){
         int randomRarity = (int) (Math.random() * 100) + 1;
 
         //37% chance
@@ -50,7 +50,7 @@ public class Summon {
         return new Ekans();
     }
 
-    static PokemonImp pokemonByRarity (int rarity){
+    public static PokemonImp pokemonByRarity (int rarity){
         return switch (rarity) {
             case 1 -> new Mew();
             case 2 -> new Squirtle();
@@ -61,7 +61,7 @@ public class Summon {
         };
     }
 
-    static PokemonImp PokemonByType (Types type){
+    public static PokemonImp PokemonByType (Types type){
         return switch (type) {
             case PSYCHIC -> new Mew();
             case WATER -> new Squirtle();
@@ -72,7 +72,7 @@ public class Summon {
         };
     }
 
-    static PokemonImp PokemonByName (Pokedex pokemon){
+    public static PokemonImp PokemonByName (Pokedex pokemon){
         return switch (pokemon) {
             case MEW -> new Mew();
             case SQUIRTLE -> new Squirtle();
@@ -83,7 +83,7 @@ public class Summon {
         };
     }
 
-    static Item Item(){
+    public static Item Item(){
         return null;
     }
 }

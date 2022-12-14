@@ -4,10 +4,10 @@ import ITEMS.POTIONS.Potion;
 import POKEMON.*;
 
 public class HealPotion extends Potion {
-    private final String healAmount;
+    private final HealPotionsTypes healAmount;
 
     //Constructor's
-    public HealPotion(String name, int price, String healAmount) {
+    public HealPotion(String name, int price, HealPotionsTypes healAmount) {
         super(name, price);
         this.healAmount = healAmount;
     }
@@ -15,16 +15,16 @@ public class HealPotion extends Potion {
     //Method's
 
     //Heal Pokemon
-    public void Effect(PokemonImp pokemon){
+    public void effect(PokemonImp pokemon){
         int amountToHeal;
 
-        if (healAmount.equals(HealPotionsTypes.WISPY.getAmount())){
+        if (healAmount == HealPotionsTypes.WISPY){
             amountToHeal = (int) (pokemon.getMaxHealth() * 0.25);
             pokemon.heal(amountToHeal);
             return;
         }
 
-        if (healAmount.equals(HealPotionsTypes.HALF.getAmount())){
+        if (healAmount == HealPotionsTypes.HALF){
             amountToHeal = (int) (pokemon.getMaxHealth() * 0.5);
             pokemon.heal(amountToHeal);
             return;
