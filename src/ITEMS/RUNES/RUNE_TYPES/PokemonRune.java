@@ -8,11 +8,19 @@ import POKEMON.PokemonImp;
 
 public class PokemonRune extends Rune {
 
-    public PokemonRune(String name, int price) {
+    private final Pokedex pokemonInside;
+
+    public PokemonRune(String name, int price, Pokedex pokemonInside) {
         super(name, price, RuneTypes.POKEMONRUNE);
+        this.pokemonInside = pokemonInside;
     }
 
-    public PokemonImp use(Pokedex pokemon) {
-        return Summon.PokemonByName(pokemon);
+    //Use Item and generate random pokemon
+    public PokemonImp use() {
+        return Summon.PokemonByName(pokemonInside);
+    }
+
+    public Pokedex getPokemonInside() {
+        return pokemonInside;
     }
 }

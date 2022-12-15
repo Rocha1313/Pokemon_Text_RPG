@@ -8,11 +8,18 @@ import POKEMON.PokemonImp;
 
 public class TypeRune extends Rune {
 
-    public TypeRune(String name, int price) {
+    private final Types pokemonTypeRune;
+
+    public TypeRune(String name, int price, Types pokemonTypeRune) {
         super(name, price, RuneTypes.TYPERUNE);
+        this.pokemonTypeRune = pokemonTypeRune;
     }
 
-    public PokemonImp use(Types type) {
-        return Summon.PokemonByType(type);
+    public PokemonImp use() {
+        return Summon.PokemonByType(this.pokemonTypeRune);
+    }
+
+    public Types getPokemonTypeRune() {
+        return this.pokemonTypeRune;
     }
 }

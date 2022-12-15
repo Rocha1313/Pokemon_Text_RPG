@@ -7,11 +7,18 @@ import POKEMON.PokemonImp;
 
 public class RarityRune extends Rune {
 
-    public RarityRune(String name, int price) {
+    private final int rarity;
+
+    public RarityRune(String name, int price, int rarity) {
         super(name, price, RuneTypes.RARITYRUNE);
+        this.rarity = rarity;
     }
 
-    public PokemonImp use(int rarity){
-        return Summon.pokemonByRarity(rarity);
+    public PokemonImp use(){
+        return Summon.pokemonByRarity(this.rarity);
+    }
+
+    public int getRarity() {
+        return rarity;
     }
 }
