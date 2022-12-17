@@ -111,6 +111,10 @@ public abstract class PokemonImp implements Pokemon {
         this.health += amount;
     }
 
+    //Heal Pokemon max
+    public void heal(){
+        this.health = this.maxHealth;
+    }
 
     //Getter's
     public int getMaxHealth(){

@@ -11,6 +11,7 @@ public interface Pokemon {
     void useUltimate(PokemonImp enemyPokemon);
     boolean checkLevel();
     void heal(int amount);
+    void heal();
 
     //Getter's
 
