@@ -96,6 +96,8 @@ public abstract class PokemonImp implements Pokemon {
             this.level++;
             this.XP = this.XP - this.nextLevel;
             this.nextLevel *= 1.15;
+            this.health *= 1.10;
+            this.damage *= 1.10;
             return true;
         }
         return false;
