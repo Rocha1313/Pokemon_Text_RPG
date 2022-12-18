@@ -52,7 +52,7 @@ public class Hospital {
 
             if (numberInput >= 1 && numberInput <= player.getAllPokemons().size()) {
                 pokemonsIndex.add(numberInput);
-                pokemonsToHeal.add(player.getAllPokemons().get(numberInput));
+                pokemonsToHeal.add(player.getAllPokemons().get(numberInput - 1));
             }
 
             if (quit(sc)){
@@ -99,9 +99,9 @@ public class Hospital {
 
     private int healAll(int pokemonsQuantity){
         //Heal all Pokemon
-        if (pokemonsQuantity >= 0){
+        if ((pokemonsQuantity-1) >= 0){
             //Pokemon health is now 100%
-            pokemonsToHeal.get(pokemonsQuantity).heal();
+            pokemonsToHeal.get(pokemonsQuantity - 1).heal();
             return healAll(pokemonsQuantity - 1);
         }
 

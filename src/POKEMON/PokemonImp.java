@@ -60,7 +60,7 @@ public abstract class PokemonImp implements Pokemon {
             }
         }
 
-        this.health = damage;
+        this.health -= damage;
     }
 
     //Defend part or all damage to Pokemon that attacked
@@ -95,7 +95,7 @@ public abstract class PokemonImp implements Pokemon {
         }
 
         //Get all damage
-        this.health = damage;
+        this.health -= damage;
     }
 
     //Attack enemy Pokemon

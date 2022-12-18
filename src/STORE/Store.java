@@ -53,7 +53,7 @@ public class Store {
     public void showItems(){
         System.out.println();
         for (int i = 0; i < catalog.size(); i++){
-            System.out.println(i + ". ");
+            System.out.println((i+1) + ". ");
             System.out.println(catalog.get(i).getName());
             System.out.println(catalog.get(i).getPrice());
             System.out.println();

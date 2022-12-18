@@ -198,16 +198,18 @@ public class Player {
             //Verify if position is null and if it's the first position null
             //If not this will find the first position null and set there the pokemon
             if (Objects.isNull(pokemonDeck[numberInput - 1])){
-                for (int i = numberInput - 1; i > 0; i--){
+                for (int i = numberInput; i > 0; i--){
                     if ((i - 1) == 0){
+                        System.out.println("Pokemon is Set");
                         pokemonDeck[0] = pokemon;
-                        break;
+                        return;
                     }
                     if (Objects.isNull(pokemonDeck[i - 1])){
                         continue;
                     }
+                    System.out.println("Pokemon is Set");
                     pokemonDeck[i] = pokemon;
-                    break;
+                    return;
                 }
                 System.out.println("Pokemon is Set");
                 return;
@@ -304,8 +306,9 @@ public class Player {
     public void showAllPokemons(){
         System.out.println();
         for (int i = 0; i < allPokemons.size(); i++){
-            System.out.println(i+". ");
+            System.out.println((i+1) + ". ");
             System.out.println(allPokemons.get(i).getName());
+            System.out.println("Level: " + allPokemons.get(i).getLevel() + " | " + allPokemons.get(i).getXP() + "/" + allPokemons.get(i).getNextLevel() + " | " + (allPokemons.get(i).getLevel()+1));
             System.out.println("Health: " + allPokemons.get(i).getHealth() + "/" + allPokemons.get(i).getMaxHealth());
             System.out.println("Damage: " + allPokemons.get(i).getDamage());
             System.out.println();
@@ -320,8 +323,9 @@ public class Player {
                 System.out.println();
                 return;
             }
-            System.out.println(i+". ");
+            System.out.println((i + 1) + ". ");
             System.out.println(pokemonDeck[i].getName());
+            System.out.println("Level: " + pokemonDeck[i].getLevel() + " | " + pokemonDeck[i].getXP() + "/" + pokemonDeck[i].getNextLevel() + " | " + (pokemonDeck[i].getLevel()+1));
             System.out.println("Health: " + pokemonDeck[i].getHealth() + "/" + pokemonDeck[i].getMaxHealth());
             System.out.println("Damage: " + pokemonDeck[i].getDamage());
             System.out.println();

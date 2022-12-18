@@ -55,6 +55,9 @@ public class Battle {
 
             }
 
+            // Check what is the player pokemon
+            pokemonOnBattle = pokemonPlaying[0] == enemy ? pokemonPlaying[1] : pokemonPlaying[0];
+
             //Check if pokemon is alive
             if (!pokemonOnBattle.isAlive()){
                 //Check if player lost
@@ -86,6 +89,9 @@ public class Battle {
                     enemyChoice = botActions(pokemonPlaying[0], playerChoice);
                 }
             }
+
+            // Check what is the player pokemon
+            pokemonOnBattle = pokemonPlaying[0] == enemy ? pokemonPlaying[1] : pokemonPlaying[0];
 
             //Check if pokemon is alive
             if (!pokemonOnBattle.isAlive()){
