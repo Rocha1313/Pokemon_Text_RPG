@@ -25,6 +25,10 @@ public class Store {
 
     //Methods
     public void NewCatalog(int playerMatches){
+        if (playerMatches == 0){
+            return;
+        }
+
         if (playerMatches % 5 == 0){
             catalog.clear();
             catalog.add(new HealPotion("25% Heal Potion", 10, HealPotionsTypes.WISPY));
@@ -43,6 +47,17 @@ public class Store {
 
     public int sellSomething(Item item){
         return (int) (item.getPrice() * 0.8);
+    }
+
+    //Show Items
+    public void showItems(){
+        System.out.println();
+        for (int i = 0; i < catalog.size(); i++){
+            System.out.println(i + ". ");
+            System.out.println(catalog.get(i).getName());
+            System.out.println(catalog.get(i).getPrice());
+            System.out.println();
+        }
     }
     private int generateItems(int numberOfItems){
         if (numberOfItems == 0){
@@ -64,5 +79,10 @@ public class Store {
             }
         }
 
+    }
+
+    //Getter
+    public ArrayList<Item> getCatalog() {
+        return catalog;
     }
 }
