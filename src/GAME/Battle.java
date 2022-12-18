@@ -3,12 +3,9 @@ package GAME;
 import ENUMS.States;
 import GAME.PLAYER.Player;
 import GAME.SPAWNER.Summon;
-import HOSPITAL.Hospital;
 import POKEMON.PokemonImp;
-import com.sun.source.tree.BreakTree;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Battle {

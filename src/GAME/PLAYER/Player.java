@@ -1,6 +1,7 @@
 package GAME.PLAYER;
 
 import GAME.INVENTORY.*;
+import ITEMS.Item;
 import POKEMON.*;
 import POKEMON.ALL_POKEMONS.Ekans;
 
@@ -33,6 +34,23 @@ public class Player {
     }
 
     //Method's
+
+    //Search on inventory
+    public void addItemOnInventory(Item item, int quantity){
+        if (inventory.size() == 0){
+            inventory.add(new InventorySpace(item, quantity));
+            return;
+        }
+
+        for (InventorySpace i : inventory){
+            if (i.getItem().getName().equals(item.getName())){
+                i.addItemOnSpace(quantity);
+                break;
+            }
+        }
+
+        inventory.add(new InventorySpace(item, quantity));
+    }
 
     //Chose Pokemon to attack
     public PokemonImp chosePokemon(){
