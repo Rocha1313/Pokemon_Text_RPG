@@ -13,8 +13,8 @@ public class Charmander extends PokemonImp {
         super.setXP(0);
         super.setType(Pokedex.CHARMANDER.getType());
         super.setHealth(Pokedex.CHARMANDER.getHealth());
-        super.setState(States.NORMAL.getState());
-        super.setNaturalTypeState(Types.FIRE.getNaturalTypeState());
+        super.setState(States.NORMAL);
+        super.setNaturalTypeState(States.FIRE);
         super.setStateCoolDown(0);
         super.setUltimateCoolDown(0);
         super.setRarity(Pokedex.CHARMANDER.getRarity());
@@ -25,8 +25,10 @@ public class Charmander extends PokemonImp {
     @Override
     public void useUltimate(PokemonImp enemyPokemon){
         //Make it Burn
-        enemyPokemon.setState(this.getNaturalTypeState());
-
+        if (enemyPokemon.getNaturalTypeState() != this.getState()) {
+            enemyPokemon.setState(this.getNaturalTypeState());
+            enemyPokemon.setStateCoolDown(4);
+        }
         //Charmander damage plus 300% Fire Damage plus 25% of level
         int damage = this.getDamage() + (States.FIRE.getDamage() * 3) + ((int)(getLevel() * 0.25));
 

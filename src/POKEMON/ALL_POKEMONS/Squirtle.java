@@ -13,8 +13,8 @@ public class Squirtle extends PokemonImp {
         super.setXP(0);
         super.setType(Pokedex.SQUIRTLE.getType());
         super.setHealth(Pokedex.SQUIRTLE.getHealth());
-        super.setState(States.NORMAL.getState());
-        super.setNaturalTypeState(Types.WATER.getNaturalTypeState());
+        super.setState(States.NORMAL);
+        super.setNaturalTypeState(States.WATER);
         super.setStateCoolDown(0);
         super.setUltimateCoolDown(0);
         super.setRarity(Pokedex.SQUIRTLE.getRarity());
@@ -25,8 +25,10 @@ public class Squirtle extends PokemonImp {
     @Override
     public void useUltimate(PokemonImp enemyPokemon){
         //Cut the enemy pokemon
-        enemyPokemon.setState(States.FIGHTING.getState());
-
+        if (enemyPokemon.getNaturalTypeState() != this.getState()) {
+            enemyPokemon.setState(States.FIGHTING);
+            enemyPokemon.setStateCoolDown(3);
+        }
         //Squirtle uses high pressure water jet
         int damage = this.getDamage() * (int) (Math.random() * 5) + 7;
 

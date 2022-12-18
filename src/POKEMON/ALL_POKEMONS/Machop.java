@@ -13,8 +13,8 @@ public class Machop extends PokemonImp {
         super.setXP(0);
         super.setType(Pokedex.MACHOP.getType());
         super.setHealth(Pokedex.MACHOP.getHealth());
-        super.setState(States.NORMAL.getState());
-        super.setNaturalTypeState(Types.FIGHTING.getNaturalTypeState());
+        super.setState(States.NORMAL);
+        super.setNaturalTypeState(States.FIGHTING);
         super.setStateCoolDown(0);
         super.setUltimateCoolDown(0);
         super.setRarity(Pokedex.MACHOP.getRarity());
@@ -26,6 +26,7 @@ public class Machop extends PokemonImp {
     public void useUltimate(PokemonImp enemyPokemon){
         //Cut the enemy pokemon
         enemyPokemon.setState(this.getNaturalTypeState());
+        enemyPokemon.setStateCoolDown(5);
 
         //Machop hit's the enemy multi times with half the damage
         int damage = (this.getDamage() / 2) * (int) (Math.random() * 6) + 5;

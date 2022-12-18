@@ -1,9 +1,13 @@
 package POKEMON;
 
+import ENUMS.States;
+import ENUMS.Types;
+
 public interface Pokemon {
 
     //Method's
     boolean isAlive();
+    void checkState();
     void getAttacked(int damage, PokemonImp enemyPokemon);
     void defend(int damage, PokemonImp enemyPokemon);
     int attack();
@@ -20,10 +24,10 @@ public interface Pokemon {
     String getName();
     int getLevel();
     int getXP();
-    String getType();
-    String getNaturalTypeState();
+    Types getType();
+    States getNaturalTypeState();
     int getHealth();
-    String getState();
+    States getState();
     int getStateCoolDown();
     int getUltimateCoolDown();
     int getRarity();
@@ -36,10 +40,10 @@ public interface Pokemon {
     void setName(String name);
     void setLevel(int level);
     void setXP(int XP);
-    void setType(String type);
-    void setNaturalTypeState(String naturalTypeState);
+    void setType(Types type);
+    void setNaturalTypeState(States naturalTypeState);
     void setHealth(int health);
-    void setState(String State);
+    void setState(States State);
     void setStateCoolDown(int stateCoolDown);
     void setUltimateCoolDown(int ultimateCoolDown);
     void setRarity(int rarity);

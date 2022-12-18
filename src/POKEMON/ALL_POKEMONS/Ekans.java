@@ -13,8 +13,8 @@ public class Ekans extends PokemonImp {
         super.setXP(0);
         super.setType(Pokedex.EKANS.getType());
         super.setHealth(Pokedex.EKANS.getHealth());
-        super.setState(States.NORMAL.getState());
-        super.setNaturalTypeState(Types.POISON.getNaturalTypeState());
+        super.setState(States.NORMAL);
+        super.setNaturalTypeState(States.POISON);
         super.setStateCoolDown(0);
         super.setUltimateCoolDown(0);
         super.setRarity(Pokedex.EKANS.getRarity());
@@ -25,8 +25,10 @@ public class Ekans extends PokemonImp {
     @Override
     public void useUltimate(PokemonImp enemyPokemon){
         //Let them die slowly
-        enemyPokemon.setState(this.getNaturalTypeState());
-
+        if (enemyPokemon.getNaturalTypeState() != this.getState()) {
+            enemyPokemon.setState(this.getNaturalTypeState());
+            enemyPokemon.setStateCoolDown(6);
+        }
         //Ekans Just a big amount of damage related a poison damage
         int damage = States.POISON.getDamage() * (int) (Math.random() * 7) + 8;
 

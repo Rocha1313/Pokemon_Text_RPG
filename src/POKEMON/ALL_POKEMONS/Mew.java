@@ -13,8 +13,8 @@ public class Mew extends PokemonImp {
         super.setXP(0);
         super.setType(Pokedex.MEW.getType());
         super.setHealth(Pokedex.MEW.getHealth());
-        super.setState(States.NORMAL.getState());
-        super.setNaturalTypeState(Types.PSYCHIC.getNaturalTypeState());
+        super.setState(States.NORMAL);
+        super.setNaturalTypeState(States.PSYCHIC);
         super.setStateCoolDown(0);
         super.setUltimateCoolDown(0);
         super.setRarity(Pokedex.MEW.getRarity());
@@ -26,6 +26,7 @@ public class Mew extends PokemonImp {
     public void useUltimate(PokemonImp enemyPokemon){
         //let the enemy pokemon dizzy
         enemyPokemon.setState(this.getNaturalTypeState());
+        enemyPokemon.setStateCoolDown(2);
 
         //Mew makes enemy attack him self   /// This attack is weak if is used on low level pokemons
         //Why?      Don't know, I just wanted it to be this way

@@ -1,15 +1,18 @@
 package POKEMON;
 
+import ENUMS.States;
+import ENUMS.Types;
+
 public abstract class PokemonImp implements Pokemon {
     private int maxHealth;
     private int nextLevel;
     private String name;
     private int level;
     private int XP;
-    private String type;
-    private String naturalTypeState;
+    private Types type;
+    private States naturalTypeState;
     private int health;
-    private String state;
+    private States state;
     private int stateCoolDown;
     private int ultimateCoolDown;
     private int rarity;
@@ -25,6 +28,20 @@ public abstract class PokemonImp implements Pokemon {
         return this.health > 0;
     }
 
+    //Check if The state of pokemon needs to be updated
+    public void checkState(){
+        if (this.state == States.NORMAL){
+            return;
+        }
+
+        if (this.stateCoolDown <= 0){
+            this.state = States.NORMAL;
+            return;
+        }
+
+        this.stateCoolDown--;
+    }
+
     //Decrease life by attack
     public void getAttacked(int damage, PokemonImp enemyPokemon){
 
@@ -34,10 +51,13 @@ public abstract class PokemonImp implements Pokemon {
             damage = this.health;
         }
 
-        //45% chance defend natural State of the other pokemon
-        int defendOfEnemyState = (int) (Math.random() * 100) + 1;
-        if (!(defendOfEnemyState <= 45)) {
-            this.state = enemyPokemon.getNaturalTypeState();
+        //Check if pokemon is natural immune
+        if (this.naturalTypeState == enemyPokemon.naturalTypeState) {
+            //65% chance defend natural State of the other pokemon
+            int defendOfEnemyState = (int) (Math.random() * 100) + 1;
+            if (!(defendOfEnemyState <= 65)) {
+                this.state = enemyPokemon.getNaturalTypeState();
+            }
         }
 
         this.health = damage;
@@ -52,10 +72,13 @@ public abstract class PokemonImp implements Pokemon {
             damage = this.health;
         }
 
-        //45% chance defend natural State of the other pokemon
-        int defendOfEnemyState = (int) (Math.random() * 100) + 1;
-        if (!(defendOfEnemyState <= 45)) {
-            this.state = enemyPokemon.getNaturalTypeState();
+        //Check if pokemon is natural immune
+        if (this.naturalTypeState == enemyPokemon.naturalTypeState) {
+            //85% chance defend natural State of the other pokemon
+            int defendOfEnemyState = (int) (Math.random() * 100) + 1;
+            if (!(defendOfEnemyState <= 85)) {
+                this.state = enemyPokemon.getNaturalTypeState();
+            }
         }
 
         //10% chance defend all damage
@@ -139,7 +162,7 @@ public abstract class PokemonImp implements Pokemon {
         return this.XP;
     }
 
-    public String getType(){
+    public Types getType(){
         return this.type;
     }
 
@@ -147,11 +170,11 @@ public abstract class PokemonImp implements Pokemon {
         return this.health;
     }
 
-    public String getState(){
+    public States getState(){
         return this.state;
     }
 
-    public String getNaturalTypeState(){
+    public States getNaturalTypeState(){
         return this.naturalTypeState;
     }
 
@@ -193,11 +216,11 @@ public abstract class PokemonImp implements Pokemon {
         this.XP = XP;
     }
 
-    public void setType(String type){
+    public void setType(Types type){
         this.type = type;
     }
 
-    public void setNaturalTypeState(String naturalTypeState){
+    public void setNaturalTypeState(States naturalTypeState){
         this.naturalTypeState = naturalTypeState;
     }
 
@@ -205,7 +228,7 @@ public abstract class PokemonImp implements Pokemon {
         this.health = health;
     }
 
-    public void setState(String state){
+    public void setState(States state){
         this.state = state;
     }
 

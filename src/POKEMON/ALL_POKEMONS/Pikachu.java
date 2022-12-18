@@ -13,8 +13,8 @@ public class Pikachu extends PokemonImp {
         super.setXP(0);
         super.setType(Pokedex.PIKACHU.getType());
         super.setHealth(Pokedex.PIKACHU.getHealth());
-        super.setState(States.NORMAL.getState());
-        super.setNaturalTypeState(Types.ELECTRIC.getNaturalTypeState());
+        super.setState(States.NORMAL);
+        super.setNaturalTypeState(States.ELECTRIC);
         super.setStateCoolDown(0);
         super.setUltimateCoolDown(0);
         super.setRarity(Pokedex.PIKACHU.getRarity());
@@ -25,7 +25,10 @@ public class Pikachu extends PokemonImp {
     @Override
     public void useUltimate(PokemonImp enemyPokemon){
         //Stun the enemy pokemon
-        enemyPokemon.setState(this.getNaturalTypeState());
+        if (enemyPokemon.getNaturalTypeState() != this.getState()) {
+            enemyPokemon.setState(this.getNaturalTypeState());
+            enemyPokemon.setStateCoolDown(2);
+        }
 
         //Pikachu damage plus 40% enemy pokemon damage
         int damage = this.getDamage() + ((int) (enemyPokemon.getDamage() * 0.4));
