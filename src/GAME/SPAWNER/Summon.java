@@ -1,7 +1,11 @@
 package GAME.SPAWNER;
 
 import ENUMS.*;
+import GET_RARITY.Odds;
 import ITEMS.*;
+import ITEMS.RUNES.RUNE_TYPES.PokemonRune;
+import ITEMS.RUNES.RUNE_TYPES.RarityRune;
+import ITEMS.RUNES.RUNE_TYPES.TypeRune;
 import POKEMON.*;
 import POKEMON.ALL_POKEMONS.*;
 
@@ -84,6 +88,16 @@ public class Summon {
     }
 
     public static Item Item(){
-        return null;
+        int random = (int) (Math.random() * 100) + 1;
+
+        if (random <= 70){
+            return new TypeRune("Type Rune", 1500, Odds.getType());
+        }
+
+        if(random <= 90){
+            return new RarityRune("Rarity Rune", 1000, Odds.getRarity());
+        }
+
+        return new PokemonRune("Pokemon Rune", 2000, Odds.getPokemon());
     }
 }
